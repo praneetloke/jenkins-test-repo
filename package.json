@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "test:html": "vitest run --reporter=html",
-    "test:json": "vitest run --reporter=json --outputFile=./summary.json"
+    "test:junit": "vitest run --reporter=junit --outputFile=./test-report.xml",
+    "test:json": "vitest run --reporter=json --outputFile=./test-report.json"
   },
   "dependencies": {
     "vitest": "^3.1.3"

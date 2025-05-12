@@ -12,14 +12,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npm run test:html'
-                publishHTML (target : [allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'html',
-                    reportFiles: 'index.html',
-                    reportName: 'My Reports',
-                    reportTitles: 'The Report'])
+                sh 'npm run test:junit'
+            }
+
+            post {
+                success {
+                    junit testResults: "test-report.xml"
+                }
             }
         }
     }
