@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "test:html": "vitest run --reporter=html",
+    "view-html-report": "npx vite preview --outDir html",
     "test:junit": "vitest run --reporter=junit --outputFile=./test-report.xml",
     "test:json": "vitest run --reporter=json --outputFile=./test-report.json"
   },
