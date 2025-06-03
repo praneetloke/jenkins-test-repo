@@ -39,7 +39,12 @@ async function main() {
             "views",
             "buildDescription.ejs"
         ),
-        { testReport, jobUrl: process.env.BUILD_URL }
+        {
+            testReport,
+            // BUILD_URL is a pre-defined Jenkins env var.
+            // https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables
+            jobUrl: process.env.BUILD_URL,
+        }
     );
 
     const outputFile = path.join(process.cwd(), "summary.html");
