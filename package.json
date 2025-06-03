@@ -1,14 +1,24 @@
 {
+  "license": "MIT",
   "scripts": {
     "test:html": "vitest run --reporter=html",
     "view-html-report": "npx vite preview --outDir html",
     "test:junit": "vitest run --reporter=junit --outputFile=./test-report.xml",
-    "test:json": "vitest run --reporter=json --outputFile=./test-report.json"
+    "test:json": "vitest run --reporter=json --outputFile=./test-report.json",
+    "summary": "tsx summaryGenerator/index.ts"
   },
   "dependencies": {
     "vitest": "^3.1.3"
   },
   "devDependencies": {
-    "@vitest/ui": "^3.1.3"
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/ejs": "^3.1.5",
+    "@types/node": "^22.15.29",
+    "@vitest/ui": "^3.1.3",
+    "ejs": "^3.1.10",
+    "prettier": "^3.5.3",
+    "tslib": "^2.8.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
   }
 }

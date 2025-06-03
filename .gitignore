@@ -10,3 +10,5 @@ node_modules
 html
 test-report.json
 test-report.xml
+
+*.html
