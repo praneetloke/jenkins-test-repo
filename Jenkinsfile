@@ -19,7 +19,8 @@ pipeline {
                 always {
                     script {
                         sh 'npm run summary'
-                        buildDescription(sh 'cat summary.html')
+                        summary = sh 'cat summary.html'
+                        buildDescription(summary)
                     }
                     junit testResults: "test-report.xml"
                 }
