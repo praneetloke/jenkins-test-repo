@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <table>
-            <tr></tr>
-        </table>
+        <div>There were <%= testReport.numFailedTests %> failed tests.</div>
+        <br />
+        <ul>
+            <% for(let i = 0; i < testReport.testResults.length; i++) { %>
+            <li>
+                <span><%= testReport.testResults[i].name %></span>
+                <ul>
+                    <% for(let j = 0; j < testReport.testResults[i].assertionResults.length; j++) { %>
+                    <li><%= testReport.testResults[i].assertionResults[j].title %></li>
+                    <% } %>
+                </ul>
+            </li>
+            <% } %>
+        </ul>
+        <br />
+        See the full <a href="<%= jobUrl %>testReport">test report</a>.
     </body>
 </html>

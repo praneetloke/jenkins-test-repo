@@ -31,7 +31,17 @@ interface TestReport {
 
 async function main() {
     const reportJson = await fs.promises.readFile("test-report.json", "utf-8");
-    const report: TestReport = JSON.parse(reportJson);
+    const testReport: TestReport = JSON.parse(reportJson);
+    const html = await ejs.renderFile(
+        path.join(
+            process.cwd(),
+            "summaryGenerator",
+            "views",
+            "buildDescription.ejs"
+        ),
+        { testReport, jobUrl: process.env.BUILD_URL }
+    );
+    await fs.promises.writeFile(path.join(process.cwd(), "summary.html"), html);
 }
 
 main().catch((err) => console.error("Error running main", err));
