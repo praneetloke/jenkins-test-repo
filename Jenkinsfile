@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    // This assumes you have Node.js available as a global
+    // tool for all agents. In this case, we have the tool
+    // with the exact name `Node 22.x` available for use
+    // in our agents.
     tools {nodejs "Node 22.x"}
     environment {
         CI = 'true'
