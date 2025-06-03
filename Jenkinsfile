@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npm run test:junit'
+                sh 'npm run test:all'
             }
 
             post {

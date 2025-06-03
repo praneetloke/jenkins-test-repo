@@ -5,6 +5,7 @@
     "view-html-report": "npx vite preview --outDir html",
     "test:junit": "vitest run --reporter=junit --outputFile=./test-report.xml",
     "test:json": "vitest run --reporter=json --outputFile=./test-report.json",
+    "test:all": "vitest run --reporter=junit --reporter=json --outputFile.junit=./test-report.xml --outputFile.json=./test-report.json",
     "summary": "tsx summaryGenerator/index.ts"
   },
   "dependencies": {
