@@ -41,7 +41,9 @@ async function main() {
         ),
         { testReport, jobUrl: process.env.BUILD_URL }
     );
-    await fs.promises.writeFile(path.join(process.cwd(), "summary.html"), html);
+
+    const outputFile = path.join(process.cwd(), "summary.html");
+    await fs.promises.writeFile(outputFile, html);
 }
 
 main().catch((err) => console.error("Error running main", err));

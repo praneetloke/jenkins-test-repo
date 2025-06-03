@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div>There were <%= testReport.numFailedTests %> failed tests.</div>
+        <% if (testReport.numFailedTests > 0) { %>
+            <div>There were <%= testReport.numFailedTests %> failed tests.</div>
+            <ul>
+                <% for(let i = 0; i < testReport.testResults.length; i++) { %>
+                <li>
+                    <span><%= testReport.testResults[i].name %></span>
+                    <ul>
+                        <% for(let j = 0; j < testReport.testResults[i].assertionResults.length; j++) { %>
+                        <li><%= testReport.testResults[i].assertionResults[j].title %></li>
+                        <% } %>
+                    </ul>
+                </li>
+                <% } %>
+            </ul>
+        <% } else { %>
+            <div>All tests passed!</div>
+        <% } %>
         <br />
-        <ul>
-            <% for(let i = 0; i < testReport.testResults.length; i++) { %>
-            <li>
-                <span><%= testReport.testResults[i].name %></span>
-                <ul>
-                    <% for(let j = 0; j < testReport.testResults[i].assertionResults.length; j++) { %>
-                    <li><%= testReport.testResults[i].assertionResults[j].title %></li>
-                    <% } %>
-                </ul>
-            </li>
-            <% } %>
-        </ul>
         <br />
         See the full <a href="<%= jobUrl %>testReport">test report</a>.
     </body>
