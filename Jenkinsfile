@@ -35,6 +35,8 @@ pipeline {
                         summary = sh(script: 'cat summary.html', returnStdout: true)
                         buildDescription(summary)
                     }
+                    // Save the logs directory.
+                    archiveArtifacts 'logs/**'
                     junit testResults: "test-report.xml"
                 }
             }
